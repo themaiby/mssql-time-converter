@@ -6,10 +6,11 @@ class MSSQLTimeConverter
      * @param float $time
      * @return DateTime
      */
-    public function floatToDateTime(float $time, $timezone = 'Europe/Kiev') {
+    public function floatToDateTime(float $time, $timezone = 'Europe/Kiev')
+    {
         $explodedMSTime = explode('.', $time);
 
-        $days = $explodedMSTime[0];
+        $days    = $explodedMSTime[0];
         $seconds = '0.' . $explodedMSTime[1];
 
         $startDate = new DateTime('1900-01-01', timezone_open($timezone));
@@ -19,12 +20,13 @@ class MSSQLTimeConverter
             $daysInterval = DateInterval::createFromDateString($days . ' days');
 
             // percent value of day time
-            $humanSeconds = intval( 86400 * $seconds);
+            $humanSeconds = intval(86400 * $seconds);
 
-            $secInterval = DateInterval::createFromDateString($humanSeconds. ' seconds');
+            $secInterval = DateInterval::createFromDateString($humanSeconds . ' seconds');
 
             $resultDate = $startDate->add($daysInterval)->add($secInterval);
-        } catch (Exception $e) {
+        }
+        catch (Exception $e) {
             echo $e;
         }
 
@@ -36,13 +38,14 @@ class MSSQLTimeConverter
      * @param string $timezone
      * @return float
      */
-    public function dateTimeToFloat(DateTime $dateTime, $timezone = 'Europe/Kiev') {
+    public function dateTimeToFloat(DateTime $dateTime, $timezone = 'Europe/Kiev')
+    {
         $startDate = new DateTime('1900-01-01 00:00:00.000', timezone_open($timezone));
 
         $diff = $dateTime->diff($startDate);
-        $days = $diff->days;
 
-        $hours = $diff->h;
+        $days    = $diff->days;
+        $hours   = $diff->h;
         $minutes = $diff->m;
         $seconds = $diff->s;
 
@@ -52,6 +55,4 @@ class MSSQLTimeConverter
         return $days + $percentTime;
     }
 }
-
-
 

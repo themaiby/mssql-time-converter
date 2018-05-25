@@ -31,6 +31,3 @@ $floatTime = new MSSQLTimeConverter();
 
 echo $floatTime->dateTimeToFloat($timeNow);
 ```
-
-### TODO:
-* Converting to float from time/timestamp
