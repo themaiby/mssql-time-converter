@@ -10,7 +10,7 @@ SELECT CAST(GETDATE() AS float) as float_time;
 But without milliseconds yet
 
 ## Usage
-<strong>Fload to DateTime</strong>
+<strong>Float to DateTime</strong>
 ```php
 $converter = new MSSQLTimeConverter();
 $MSDateTime = 43243.5382623071;
