@@ -14,7 +14,9 @@ SELECT CAST(GETDATE() AS float) as float_time;
 $timeConverter = new MSSQLTimeConverter();
 $MSDateTime = 43243.5382623071;
 
-$humanDate = $timeConverter->floatToDateTime($MSDateTime);
+$timezone = timezone_open('Europe/Kiev');
+
+$humanDate = $timeConverter->floatToDateTime($MSDateTime, $timezone);
 echo $humanDate->format('Y-m-d H:i:s.u'); // 2018-05-25 12:55:05.000000
 ```
 

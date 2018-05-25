@@ -6,13 +6,13 @@ class MSSQLTimeConverter
      * @param float $time
      * @return DateTime
      */
-    public function floatToDateTime(float $time) {
+    public function floatToDateTime(float $time, $timezone = 'Europe/Kiev') {
         $explodedMSTime = explode('.', $time);
 
         $days = $explodedMSTime[0];
         $seconds = '0.' . $explodedMSTime[1];
 
-        $startDate = new DateTime('1900-01-01');
+        $startDate = new DateTime('1900-01-01', timezone_open($timezone));
 
         try {
             // int val is always days count since 1900-01-01 00:00:00
