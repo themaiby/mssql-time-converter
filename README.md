@@ -7,6 +7,7 @@ SELECT CAST(43243.5382623071 AS datetime) as human_time;
 SELECT CAST(GETDATE() AS float) as float_time;
 ```
 
+But without milliseconds yet
 
 ## Usage
 <strong>floatToDateTime</strong>
@@ -17,6 +18,7 @@ $MSDateTime = 43243.5382623071;
 $timezone = timezone_open('Europe/Kiev');
 
 $humanDate = $timeConverter->floatToDateTime($MSDateTime, $timezone);
+
 echo $humanDate->format('Y-m-d H:i:s.u'); // 2018-05-25 12:55:05.000000
 ```
 
@@ -29,5 +31,5 @@ $timeNow->setTimezone($timezone);
 
 $floatTime = new MSSQLTimeConverter();
 
-echo $floatTime->dateTimeToFloat($timeNow);
+echo $floatTime->dateTimeToFloat($timeNow); // somethink like 43243.5382623071
 ```
