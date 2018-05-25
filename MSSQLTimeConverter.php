@@ -31,11 +31,3 @@ class MSSQLTimeConverter
         return $resultDate;
     }
 }
-
-
-// ### Example
-$a = new MSSQLTimeConverter();
-$MSDateTime = 43243.5382623071;
-
-$humanDate = $a->fromFloat($MSDateTime);
-echo $humanDate->format('Y-m-d H:i:s.u');
