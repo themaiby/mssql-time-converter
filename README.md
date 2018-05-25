@@ -31,5 +31,5 @@ $timeNow->setTimezone($timezone);
 
 $floatTime = new MSSQLTimeConverter();
 
-echo $floatTime->dateTimeToFloat($timeNow); // somethink like 43243.5382623071
+echo $floatTime->dateTimeToFloat($timeNow); // something like 43243.5382623071
 ```
