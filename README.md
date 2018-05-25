@@ -10,7 +10,7 @@ SELECT CAST(GETDATE() AS float) as float_time;
 But without milliseconds yet
 
 ## Usage
-<strong>floatToDateTime</strong>
+<strong>Fload to DateTime</strong>
 ```php
 $converter = new MSSQLTimeConverter();
 $MSDateTime = 43243.5382623071;
@@ -19,14 +19,14 @@ $humanDate = $converter->floatToDateTime($MSDateTime, 'Europe/Kiev');
 echo $humanDate->format('Y-m-d H:i:s.u'); // 2018-05-25 12:55:05.000000
 ```
 
-* <strong>dateTimeToFloat</strong>
+<strong>DateTime to Float</strong>
 ```php
 $timeNow = new DateTime('2018-05-25 12:55:05.000000', 'Europe/Kiev');
 $converter = new MSSQLTimeConverter();
 
 echo $converter->dateTimeToFloat($timeNow); // ~43243.5382623071
 ```
-* <strong>If you want to convert only time</strong>
+<strong>If you want to convert only time</strong>
 ```php
 $time = "12:55:05";
 // You need to hardcore 1900-01-01. I hope it's temporary.
