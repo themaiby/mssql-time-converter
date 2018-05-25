@@ -6,7 +6,7 @@ class MSSQLTimeConverter
      * @param float $time
      * @return DateTime
      */
-    public function floatToDateTime(float $time, $timezone = 'Europe/Kiev')
+    public function floatToDateTime(float $time, $timezone = 'UTC')
     {
         $explodedMSTime = explode('.', $time);
 
@@ -38,16 +38,17 @@ class MSSQLTimeConverter
      * @param string $timezone
      * @return float
      */
-    public function dateTimeToFloat(DateTime $dateTime, $timezone = 'Europe/Kiev')
+    public function dateTimeToFloat(DateTime $dateTime, $timezone = 'UTC')
     {
-        $startDate = new DateTime('1900-01-01 00:00:00.000', timezone_open($timezone));
+        $startDate = new DateTime('1900-01-01', timezone_open($timezone));
 
-        $diff = $dateTime->diff($startDate);
+        $diff = $startDate->diff($dateTime, true);
 
         $days    = $diff->days;
         $hours   = $diff->h;
-        $minutes = $diff->m;
+        $minutes = $diff->i;
         $seconds = $diff->s;
+
 
         $humanSecond = ($hours * 60 * 60) + ($minutes * 60) + $seconds;
         $percentTime = $humanSecond / 86400;
@@ -55,4 +56,3 @@ class MSSQLTimeConverter
         return $days + $percentTime;
     }
 }
-
