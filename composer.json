@@ -3,6 +3,12 @@
   "description": "Converts float type time from MSSQL to PHP DateTime",
   "version": "0.0.1",
   "license": "MIT",
+  "authors": [
+    {
+      "name": "Kirill Litvinov",
+      "email": "themaiby0@gmail.com"
+    }
+  ],
   "autoload": {
     "classmap": ["./MSSQLTimeconverter"]
   }
