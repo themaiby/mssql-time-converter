@@ -12,24 +12,26 @@ But without milliseconds yet
 ## Usage
 <strong>floatToDateTime</strong>
 ```php
-$timeConverter = new MSSQLTimeConverter();
+$converter = new MSSQLTimeConverter();
 $MSDateTime = 43243.5382623071;
-
-$timezone = timezone_open('Europe/Kiev');
-
-$humanDate = $timeConverter->floatToDateTime($MSDateTime, $timezone);
+$humanDate = $converter->floatToDateTime($MSDateTime, 'Europe/Kiev');
 
 echo $humanDate->format('Y-m-d H:i:s.u'); // 2018-05-25 12:55:05.000000
 ```
 
-<strong>dateTimeToFloat</strong>
+* <strong>dateTimeToFloat</strong>
 ```php
-$timezone = timezone_open('Europe/Kiev');
+$timeNow = new DateTime('2018-05-25 12:55:05.000000', 'Europe/Kiev');
+$converter = new MSSQLTimeConverter();
 
-$timeNow = new DateTime();
-$timeNow->setTimezone($timezone);
+echo $converter->dateTimeToFloat($timeNow); // ~43243.5382623071
+```
+* <strong>If you want to convert only time</strong>
+```php
+$time = "12:55:05";
+// You need to hardcore 1900-01-01. I hope it's temporary.
+$dateTime = new DateTime("1900-01-01 " . $time, 'Europe/Kiev');
+$converter = new MSSQLTimeConverter();
 
-$floatTime = new MSSQLTimeConverter();
-
-echo $floatTime->dateTimeToFloat($timeNow); // something like 43243.5382623071
+echo $converter->dateTimeToFloat($timeNow); // ~43243.5382623071
 ```
