@@ -1,4 +1,4 @@
-# mssql-converter
+# mssql-time-converter
 Converts MSSQL float time to PHP datetime object.
 
 ## Example
