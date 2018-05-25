@@ -1,0 +1,9 @@
+{
+  "name": "themeisee/MSSQLTimeConverter",
+  "description": "Converts float type time from MSSQL to PHP DateTime",
+  "version": "0.0.1",
+  "license": "MIT",
+  "autoload": {
+    "classmap": ["./MSSQLTimeconverter"]
+  }
+}
