@@ -2,7 +2,7 @@
   "name": "themeisee/mssql-time-converter",
   "description": "Converts float type to DateTime",
   "type": "library",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "MIT",
   "authors": [
     {
