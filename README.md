@@ -35,3 +35,6 @@ $converter = new MSSQLTimeConverter();
 
 echo $converter->dateTimeToFloat($timeNow); // ~43243.5382623071
 ```
+
+### TODO
+* take with milliseconds
